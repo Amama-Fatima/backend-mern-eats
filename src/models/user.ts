@@ -2,15 +2,15 @@ import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  auth0Id: {
-    type: String,
-    required: true,
-    // unique: true
-  },
   email: {
     type: String,
     required: true,
     // unique: true
+  },
+  password: {
+    type: String,
+    required: true,
+    // select: false, //when we query for user, password will not be returned unless we explicitly ask for it
   },
   name: {
     type: String,

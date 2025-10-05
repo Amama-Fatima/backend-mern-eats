@@ -10,6 +10,7 @@ const getRestaurant = async (req: Request, res: Response) => {
     }
     res.json(restaurant);
   } catch (error) {
+    console.log("the error is on line 13", error);
     res.status(500).json({ message: "Something went wrong" });
   }
 };
@@ -68,6 +69,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
     };
     res.json(response);
   } catch (error) {
+    console.log("the error is on line 74", error);
     res.status(500).json({ message: "Something went wrong" });
   }
 };

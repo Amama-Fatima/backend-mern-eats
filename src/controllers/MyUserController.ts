@@ -28,7 +28,7 @@ const createCurrentUser = async (req: Request, res: Response) => {
 
     return res.status(201).json(newUser.toObject());
   } catch (error) {
-    console.log(error);
+    console.log("ERROR CREATING NEW USER", error);
     return res.status(500).json({ message: "Error creating user" });
   }
 };

@@ -23,10 +23,16 @@ app.use(express.json());
 //adding middleware to allow cross origin requests
 app.use(
   cors({
-    origin: "https://frontend-mern-eats-app.onrender.com",
+    origin: [
+      "https://frontend-mern-eats-app.onrender.com",
+      "http://localhost:5173",
+    ],
   })
 );
 
+app.get("/", async (req: Request, res: Response) => {
+  res.send({ message: "hello world!" });
+});
 app.get("/health", async (req: Request, res: Response) => {
   res.send({ message: "health ok!" });
 });
