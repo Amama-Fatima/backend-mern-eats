@@ -4,6 +4,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import myUserRoute from "./routes/MyUserRoute";
 import { v2 as cloudinary } from "cloudinary";
+import cookieParser from "cookie-parser";
 import myRestaurantRoute from "./routes/MyRestaurantRoutes";
 import restaurantRoute from "./routes/RestaurantRoutes";
 import authRoutes from "./routes/AuthRoutes";
@@ -21,6 +22,7 @@ cloudinary.config({
 const app = express();
 //adding middleware to automatically convert req of out api to json
 app.use(express.json());
+app.use(cookieParser());
 //adding middleware to allow cross origin requests
 app.use(
   cors({
@@ -28,6 +30,7 @@ app.use(
       "https://frontend-mern-eats-app.onrender.com",
       "http://localhost:5173",
     ],
+    credentials: true,
   })
 );
 
