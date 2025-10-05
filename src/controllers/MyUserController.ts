@@ -16,11 +16,13 @@ const getCurrentUser = async (req: Request, res: Response) => {
 
 const createCurrentUser = async (req: Request, res: Response) => {
   try {
-    const { auth0Id } = req.body;
-    const existingUser = await User.findOne({ auth0Id });
+    const { email } = req.body;
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       console.log("User already exists");
-      return res.status(400).json({ message: "User already exists" });
+      return res
+        .status(400)
+        .json({ message: "User already exists with this email" });
     }
     const newUser = new User(req.body);
     await newUser.save();
