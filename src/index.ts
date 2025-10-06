@@ -8,6 +8,9 @@ import cookieParser from "cookie-parser";
 import myRestaurantRoute from "./routes/MyRestaurantRoutes";
 import restaurantRoute from "./routes/RestaurantRoutes";
 import authRoutes from "./routes/AuthRoutes";
+
+const PORT = process.env.PORT || 7000;
+
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
   .then(() => console.log("connected to db"));
@@ -47,6 +50,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/my/restaurant", myRestaurantRoute);
 app.use("/api/restaurant", restaurantRoute);
 
-app.listen(7000, () => {
-  console.log("Server is running on port 7000");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
