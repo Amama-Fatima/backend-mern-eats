@@ -29,6 +29,7 @@ app.use(
     origin: [
       "https://frontend-mern-eats-app.onrender.com",
       "http://localhost:5173",
+      "http://13.127.143.28",
     ],
     credentials: true,
   })
