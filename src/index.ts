@@ -33,6 +33,7 @@ app.use(
       "https://frontend-mern-eats-app.onrender.com",
       "http://localhost:5173",
       "http://13.127.143.28",
+      "http://13.204.193.139",
     ],
     credentials: true,
   })
